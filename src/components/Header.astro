@@ -4,14 +4,23 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+	<nav class="flex justify-between pt-4 pb-6 px-8 bg-violet-600 border-b-4 border-black">
+		<div class="flex flex-col gap-2">
+			<div class="border-black border-6 h-[90px] w-[140px] flex flex-col justify-center items-end p-4 bg-violet-400 -rotate-3">
+				<h1 class="text-3xl font-extrabold tracking-tighter">BOLD</h1>
+				<h1 class="text-3xl font-extrabold tracking-tighter">WORDS</h1>
+			</div>
+			<div>
+				<h5 class="text-sm tracking-tighter font-medium ml-4">by Boibhav Chakraborty</h5>
+			</div>
 		</div>
-		<div class="social-links">
+		
+		<div class="flex justify-between items-center space-x-8 text-2xl">
+			<HeaderLink href="/" class="text-2xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-2 hover:border-black hover:border-2 hover:-rotate-2">Home</HeaderLink>
+			<HeaderLink href="/blog" class="text-2xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-2 hover:border-black hover:border-2 hover:-rotate-2">Blog</HeaderLink>
+			<HeaderLink href="/about" class="text-2xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-2 hover:border-black hover:border-2 hover:-rotate-2">About</HeaderLink>
+		</div>
+		<div class="flex space-x-4">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
 				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
@@ -42,44 +51,3 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
-</style>
