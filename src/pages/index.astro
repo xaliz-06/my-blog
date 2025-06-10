@@ -6,7 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Picture } from 'astro:assets';
 import home_img from "../assets/blog_hero.png"
 import { Separator } from '@/components/ui/separator';
-import Showcase from '@/components/Showcase.astro';
+import { getCollection } from 'astro:content';
+import ShowcaseList from '@/components/blog/ShowcaseList';
+
+const posts = await getCollection('blog')
+const latestPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
 ---
 
 <!doctype html>
@@ -17,7 +21,7 @@ import Showcase from '@/components/Showcase.astro';
 	<body class="font-roboto-mono bg-purple-200">
 		<Header />
 		<main class="mt-8 mb-12 mx-auto max-w-7xl">
-			<div class="h-screen flex gap-4">
+			<section class="min-h-screen flex gap-4">
 				<div class="pt-12 flex-1">
 					<h1 class="text-8xl tracking-tight font-extrabold">THINKING</h1>
 					<h1 class="text-8xl tracking-tight font-extrabold">OUT</h1>
@@ -33,11 +37,18 @@ import Showcase from '@/components/Showcase.astro';
 				<div class="flex-1">
 					<Picture src={home_img} formats={['png', 'avif', 'webp']} alt="home page banner image: a man writing on his typewriter"/>
 				</div>
-			</div>
+			</section>
 			<div class="h-8">
-				<Separator class="mx-3"/>
+				<Separator className="mx-3"/>
 			</div>
-			<Showcase/>
+			<section class="mb-12">
+				<div class="mt-4 mb-2 flex flex-col gap-3">
+					<h2 class="text-5xl font-bold tracking-tight">🎯 LATEST POSTS</h2>
+					<div class="w-[50%] border-3 border-black bg-fuchsia-800 h-[10px]"></div>
+				</div>
+				<ShowcaseList client:load posts={latestPosts} isPaginated={false}/>
+			</section>
+			
 		</main>
 		<Footer />
 	</body>
