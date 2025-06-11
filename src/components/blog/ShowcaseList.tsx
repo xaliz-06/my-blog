@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { formatRelativeDate } from "@/lib/date-formatter";
+import TagsList from "./TagsList";
 
 interface ShowcaseProps {
   posts: CollectionEntry<"blog">[];
@@ -32,6 +33,10 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
   // const totalPages = 33;
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = postsWithUrls.slice(indexOfFirstPost, indexOfLastPost);
 
   const getPageNumbers = () => {
     const pages = [];
@@ -71,7 +76,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
   return (
     <div className="mt-12">
       <ul className="list-none flex flex-col gap-4">
-        {postsWithUrls.map((post) => (
+        {currentPosts.map((post) => (
           <li
             key={post.id}
             className="relative cursor-pointer"
@@ -83,30 +88,10 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
                   {post.data.isPinned && (
                     <Pin className="text-emerald-700 " strokeWidth="3" />
                   )}
-                  <div className="flex gap-2">
-                    {post.data.primaryTags.map((tag) => (
-                      <div
-                        key={tag}
-                        className="p-2 min-w-[4vw] h-[30px] bg-purple-500 flex items-center justify-center border-black border-2 relative -translate-x-0.5 -translate-y-0.5 shadow-[3px_3px_0px_0px_#000]"
-                      >
-                        <p className="text-md font-archivo font-bold">{tag}</p>
-                      </div>
-                    ))}
-                  </div>
-                  {post.data.secondaryTags && (
-                    <div className="flex gap-2">
-                      {post.data.secondaryTags.map((tag) => (
-                        <div
-                          key={tag}
-                          className="p-2 min-w-[4vw] h-[30px] bg-fuchsia-500 flex items-center justify-center border-black border-2 relative -translate-x-0.5 -translate-y-0.5 shadow-[3px_3px_0px_0px_#000]"
-                        >
-                          <p className="text-md font-archivo font-bold">
-                            {tag}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <TagsList
+                    primaryTags={post.data.primaryTags}
+                    secondaryTags={post.data.secondaryTags}
+                  />
                 </div>
                 <div className="flex gap-6">
                   <div className="flex gap-2 items-center justify-center text-gray-600">
@@ -147,7 +132,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
                   <h5 className="text-2xl font-semibold tracking-tighter">
                     READ MORE
                   </h5>
-                  <ArrowRight size="18" />
+                  <ArrowRight size="18" className="scale-150 ml-2" />
                 </div>
               </Button>
             </div>

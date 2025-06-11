@@ -18,6 +18,8 @@ const blog = defineCollection({
       secondaryTags: z.array(z.string()).optional(),
       author: z.string().optional(),
       minutesToRead: z.coerce.number().optional(),
+      nextBlogPost: z.string().optional(),
+      prevBlogPost: z.string().optional(),
     }),
 });
 
