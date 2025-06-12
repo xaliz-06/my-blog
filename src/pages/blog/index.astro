@@ -23,15 +23,15 @@ const pinnedPosts = posts.filter((post) => post.data.isPinned);
 	<body class="font-roboto-mono bg-purple-200">
 		<Header />
 		<main class="mt-8 mb-12 mx-auto max-w-7xl">
-			<section class="min-h-screen flex flex-col space-y-8 w-full">
-				<div class="flex flex-col my-8 w-full">
-					<div class="mt-4 mb-2 flex justify-between items-center">
+			<section class="min-h-screen flex flex-col space-y-8 w-[90vw] mx-auto lg:w-full">
+				<div class="flex flex-col lg:my-8 w-full">
+					<div class="mt-4 mb-2 flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center lg:gap-0">
 						<div class="flex-1 flex flex-col gap-3">
-							<h2 class="text-5xl font-bold tracking-tight">📌 PINNED POSTS</h2>
+							<h2 class="text-3xl md:text-5xl font-bold tracking-tight">📌 PINNED POSTS</h2>
 							<div class="w-[100%] border-3 border-black bg-fuchsia-800 h-[10px]"></div>
 						</div>
 						<div class="flex-1 flex justify-end items-center">
-							<a href="/search" class="min-w-[30%] h-[55px] rounded-none flex justify-center items-center border-indigo-500 border-4 cursor-pointer bg-indigo-500 -translate-x-1 -translate-y-1 transition-all duration-300 ease-in-out text-white shadow-[5px_5px_0px_0px_#000] shadow-black relative hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_#000] hover:shadow-black hover:bg-orange-400 hover:border-orange-400 hover:text-white disabled:cursor-not-allowed">
+							<a href="/search" class="min-w-[50%] md:min-w-[30%] h-[55px] rounded-none flex justify-center items-center border-indigo-500 border-4 cursor-pointer bg-indigo-500 -translate-x-1 -translate-y-1 transition-all duration-300 ease-in-out text-white shadow-[5px_5px_0px_0px_#000] shadow-black relative hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_#000] hover:shadow-black hover:bg-orange-400 hover:border-orange-400 hover:text-white disabled:cursor-not-allowed">
 								<p class="text-2xl font-semibold">SEARCH</p>
 								<Search class="inline ml-2 scale-110" />
 							</a>

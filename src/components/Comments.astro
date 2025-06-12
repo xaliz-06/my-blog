@@ -1,6 +1,6 @@
 ---
 import CommentsList from "./CommentsList.astro";
-import CommentsForm from "./CommentForm.astro";
+import CommentForm from "./CommentForm.tsx";
 
 interface Props {
     postSlug: string;
@@ -9,10 +9,10 @@ interface Props {
 const { postSlug } = Astro.props;
 ---
 
-<div class="mt-8 w-full flex flex-col font-roboto-mono">
-    <h3 class="text-lg font-bold text-gray-600 tracking-tight"><i>Leave your comments about the post. <br/>No Sign-up or Log-in so your comments are untraceable (other than the information you give me)</i></h3>
+<div class="mt-4 md:mt-8 w-full flex flex-col font-roboto-mono">
+    <h3 class="text-xs md:text-lg font-bold text-gray-600 tracking-tight"><i>Leave your comments about the post. <br/>No Sign-up or Log-in so your comments are untraceable (other than the information you give me)</i></h3>
     <div class="mt-4 w-full space-y-8">
-        <CommentsForm postSlug={postSlug} />
+        <CommentForm postSlug={postSlug} client:load/>
         <div class="w-[100%] border-3 border-black bg-fuchsia-800 h-[10px]"></div>
         <CommentsList postSlug={postSlug} server:defer/>
     </div>
