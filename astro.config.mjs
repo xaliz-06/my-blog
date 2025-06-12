@@ -9,14 +9,21 @@ import react from "@astrojs/react";
 
 import db from "@astrojs/db";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   build: {
     format: "file",
   },
+
   site: "https://example.com",
   integrations: [mdx(), sitemap(), react(), pagefind(), db()],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  output: "static",
+  adapter: cloudflare(),
 });

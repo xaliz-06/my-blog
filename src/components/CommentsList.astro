@@ -1,0 +1,42 @@
+---
+import { db, Comment, eq, desc } from "astro:db";
+
+interface Props {
+    postSlug: string;
+}
+
+const { postSlug } = Astro.props;
+
+const comments = await db
+    .select()
+    .from(Comment)
+    .where(eq(Comment.postSlug, postSlug))
+    .orderBy(desc(Comment.createdAt));
+
+const sortedComments = comments.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+---
+
+<div class="space-y-4">
+
+    {sortedComments.length !== 0 ? (
+        sortedComments.map((comment) => (
+            <div class="p-4 bg-fuchsia-300 border-4 border-black shadow-[5px_5px_0px_0px_#000] text-xl font-roboto-mono tracking-tight px-4 py-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-3xl">{comment.username}</h2>
+                    <h5 class="text-gray-600 text-xl font-semibold">
+                        {comment.createdAt.toLocaleDateString()}
+                    </h5>
+                </div>
+                
+                <div class="mt-2">
+                    <p class="text-xl font-semibold text-indigo-800"><i>{comment.message}</i></p>
+                </div>
+            </div>
+        ))
+    ) : (
+        <div class="p-4 bg-fuchsia-300 border-4 border-black shadow-[5px_5px_0px_0px_#000] text-xl font-roboto-mono tracking-tight px-4 py-6">
+            <h2 class="text-3xl font-bold">No comments yet</h2>
+            <p class="text-xl">Be the first to comment!</p>
+        </div>
+    )}
+</div>
