@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "null_point",
+  // Update to today's date
+  "compatibility_date": "2025-06-14",
+  "assets": {
+    "directory": "./dist"
+  }
+}
