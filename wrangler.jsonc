@@ -1,9 +1,14 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "null_point",
+  "name": "my-astro-app",
+  "main": "./dist/_worker.js/index.js",
   // Update to today's date
   "compatibility_date": "2025-06-14",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
+    "binding": "ASSETS",
     "directory": "./dist"
+  },
+  "observability": {
+    "enabled": true
   }
 }
