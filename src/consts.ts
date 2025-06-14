@@ -3,8 +3,9 @@
 
 import { z } from "astro/zod";
 
-export const SITE_TITLE = "Astro Blog";
-export const SITE_DESCRIPTION = "Welcome to my website!";
+export const SITE_TITLE = "Null Point";
+export const SITE_DESCRIPTION =
+  "A blog created and written by Boibhav Chakraborty";
 
 export const CommentSchema = z.object({
   username: z
