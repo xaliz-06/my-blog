@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "ts-node src/scripts/generateSearchIndex.ts",
     "dev": "astro dev --remote",
     "build": "astro build --remote",
     "preview": "astro preview",
