@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { Picture } from 'astro:assets';
-import home_img from "../assets/blog_hero.png"
+import home_img from "../assets/null_pt_hero.png"
 import { Separator } from '@/components/ui/separator';
 import { getCollection } from 'astro:content';
 import ShowcaseList from '@/components/blog/ShowcaseList';
@@ -21,16 +21,14 @@ const latestPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 	<body class="font-roboto-mono bg-purple-200">
 		<Header />
 		<main class="mt-8 mb-12 mx-auto max-w-7xl">
-			<section class="lg:min-h-screen flex px-4 flex-col lg:flex-row mb-4 lg:mb-2 gap-8 md:gap-4 py-2 md:py-0 w-[90vw] mx-auto lg:w-full">
+			<section class="md:min-h-[80vh] flex px-4 flex-col lg:flex-row mb-4 lg:mb-2 gap-8 md:gap-4 py-2 md:py-0 w-[90vw] mx-auto lg:w-full">
 				<div class="pt-6 md:pt-12 md:flex-1">
-					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">THINKING</h1>
-					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">OUT</h1>
-					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">LOUD</h1>
+					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">THOUGHTS</h1>
+					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">FICTION</h1>
+					<h1 class="text-6xl text-wrap md:text-8xl tracking-tight font-extrabold">STORIES</h1>
 					<div class="mt-6 w-[100%] md:w-[80%]">
 						<p class="text-md tracking-tight font-light leading-5">
-							Welcome to my personal blog, where I share my thoughts, ideas, and experiences. Join me on this
-							journey of exploration and discovery as I delve into various topics that inspire and intrigue
-							me.
+							inspired by life ... and the world around me.
 						</p>
 					</div>
 				</div>

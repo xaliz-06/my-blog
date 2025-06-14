@@ -46,7 +46,7 @@ const { id, title, description, pubDate, updatedDate, heroImage, primaryTags, au
 								</div>
 							</div>
 						</div>
-						<div class="flex gap-4 mb-4">
+						<div class="flex gap-2 mb-4 flex-wrap">
 							<TagsList client:load primaryTags={primaryTags} secondaryTags={secondaryTags}/>
 						</div>
 						<div class="mb-8">
@@ -56,7 +56,7 @@ const { id, title, description, pubDate, updatedDate, heroImage, primaryTags, au
 					<div class="h-8 mb-8 ">
 						<Separator/>
 					</div>
-					<div class="prose-lg prose-p:text-base md:prose-p:text-md prose-p:leading-6 prose-h5:text-sm prose-h6:text-xs prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:font-bold prose-a:text-purple-600 prose-a:hover:text-purple-800">
+					<div class="prose-lg prose-p:text-sm md:prose-p:text-lg prose-p:leading-snug prose-h5:text-sm prose-h6:text-xs prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:font-bold prose-a:text-purple-600 prose-a:hover:text-purple-800">
 						<slot />
 					</div>
 					{!isAbout && <div class="mt-20 mb-4 flex justify-between items-center">

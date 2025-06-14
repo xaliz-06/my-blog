@@ -84,7 +84,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
           >
             <div className="w-full border-4 border-black px-4 py-3 md:px-8 md:py-6 min-h-[15vh] bg-violet-300 -translate-x-1 -translate-y-1 shadow-[5px_5px_0px_0px_#000] shadow-black relative hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_#000] hover:shadow-black transition-all duration-300 ease-in-out">
               <div className="flex flex-col gap-2 mb-4 md:mb-0 items-start md:flex-row md:justify-between md:gap-0 md:items-center">
-                <div className="flex gap-2 md:gap-4 md:2 md:mb-4 justify-center items-center">
+                <div className="flex gap-2 md:gap-4 md:2 md:mb-4 justify-start items-center flex-wrap">
                   {post.data.isPinned && (
                     <Pin
                       className="text-emerald-700 scale-75 md:scale-115"
@@ -96,7 +96,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
                     secondaryTags={post.data.secondaryTags}
                   />
                 </div>
-                <div className="flex gap-3 justify-between md:gap-6 text-xs md:text-lg md:items-center">
+                <div className="flex gap-3 justify-between md:gap-6 text-xs md:text-base md:items-center">
                   <div className="flex gap-0 md:gap-2 items-center justify-center text-gray-600">
                     <Calendar className="scale-60 md:scale-75" />
                     {formatRelativeDate(post.data.pubDate)}

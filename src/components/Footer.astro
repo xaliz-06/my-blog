@@ -1,5 +1,7 @@
 ---
+import { Picture } from "astro:assets";
 import SocialLinks from "./SocialLinks.astro";
+import logo_img from "../assets/null_pt.png"
 
 const today = new Date();
 ---
@@ -13,6 +15,7 @@ const today = new Date();
 	<div class="flex justify-center items-center flex-col">
 		<p class="text-gray-600 tracking-wide font-semibold text-xs	md:text-xl text-center"><span class="text-lg md:text-2xl">&copy;</span> {today.getFullYear()} Boibhav Chakraborty. All rights reserved.</p>
 		<div class="mt-8 flex flex-col items-center space-y-4">
+			<Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-200"/>
 			<h5 class="text-xs md:text-lg font-bold tracking-tight text-gray-500">My Social Links</h5>
 			<SocialLinks />
 		</div>

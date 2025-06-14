@@ -1,15 +1,25 @@
 ---
+import { Picture } from 'astro:assets';
 import HeaderLink from './HeaderLink.astro';
 import SocialLinks from './SocialLinks.astro';
+import logo_img from '../assets/null_pt.png'
+import { Separator } from './ui/separator';
 ---
 
 <header>
 	<div id="main-header">
-		<nav class="flex flex-col gap-6 items-center md:flex-row md:justify-between pt-4 pb-6 px-8 bg-violet-600 border-b-4 border-black">
+		<nav class="flex flex-col gap-6 items-center md:flex-row md:justify-between pt-4 pb-6 px-8  bg-violet-600 border-b-4 border-black">
 			<div class="flex items-center justify-center gap-2">
-				<div class="border-black border-6 h-[90px] w-[140px] flex flex-col justify-center items-end p-4 bg-violet-400 -rotate-3">
-					<h1 class="text-3xl font-extrabold tracking-tighter">BOLD</h1>
-					<h1 class="text-3xl font-extrabold tracking-tighter">WORDS</h1>
+				<div class="border-black border-6 min-h-[90px] min-w-[140px] flex justify-center items-center p-4 bg-violet-400 -rotate-3">
+                    <div class="border-r-2 border-black">
+                        <Picture src={logo_img} alt="logo" class="w-20 h-20"></Picture>
+                    </div>
+                   
+                    <div class="ml-2 flex flex-col items-end">
+                        <h1 class="text-3xl font-extrabold tracking-tighter">null</h1>
+                        <h1 class="text-3xl font-extrabold tracking-tighter">point</h1>
+                    </div>
+					
 				</div>
 			</div>
 			
@@ -18,13 +28,16 @@ import SocialLinks from './SocialLinks.astro';
 				<HeaderLink href="/blog" class="text-xl md:text-2xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-2 hover:border-black hover:border-2 hover:-rotate-2">Blog</HeaderLink>
 				<HeaderLink href="/about" class="text-xl md:text-2xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-2 hover:border-black hover:border-2 hover:-rotate-2">About</HeaderLink>
 			</div>
-			<div class="hidden md:flex space-x-4">
+			<div class="hidden lg:flex space-x-4">
 				<SocialLinks/>
 			</div>
 		</nav>
 	</div>
 	<div id="sticky-header" class="transform -translate-y-full transition-transform duration-300 fixed top-0 left-0 right-0 z-50">
-        <nav class="flex justify-center py-2 px-8 bg-violet-600 border-b-4 border-black min-h-[10vh]">
+        <nav class="flex justify-center items-center py-2 px-8 bg-violet-600 border-b-4 border-black min-h-[10vh] gap-14">
+            <div class="hidden md:flex justify-center items-center">
+                <Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-150"/>
+            </div>
             <div class="flex justify-between items-center space-x-8 text-xl">
                 <HeaderLink href="/" class="text-xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-1 hover:border-black hover:border hover:-rotate-1">Home</HeaderLink>
                 <HeaderLink href="/blog" class="text-xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-1 hover:border-black hover:border hover:-rotate-1">Blog</HeaderLink>

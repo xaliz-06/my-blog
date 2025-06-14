@@ -6,7 +6,7 @@ interface TagsListProps {
 const TagsList = ({ primaryTags, secondaryTags }: TagsListProps) => {
   return (
     <>
-      <div className="flex gap-2">
+      <>
         {primaryTags.map((tag) => (
           <div
             key={tag}
@@ -16,9 +16,9 @@ const TagsList = ({ primaryTags, secondaryTags }: TagsListProps) => {
             <p className="text-sm md:text-md font-archivo font-bold">{tag}</p>
           </div>
         ))}
-      </div>
+      </>
       {secondaryTags && (
-        <div className="flex gap-2">
+        <>
           {secondaryTags.map((tag) => (
             <div
               key={tag}
@@ -30,7 +30,7 @@ const TagsList = ({ primaryTags, secondaryTags }: TagsListProps) => {
               <p className="text-sm md:text-md font-archivo font-bold">{tag}</p>
             </div>
           ))}
-        </div>
+        </>
       )}
     </>
   );
