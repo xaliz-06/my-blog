@@ -1,9 +1,9 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import SocialLinks from './SocialLinks.astro';
-import { Image } from 'astro:assets';
-import { createImageUrl } from '@/lib/utils';
-import { NULL_PT_LOGO } from '@/consts';
+import { Picture } from 'astro:assets';
+
+import logo_img from 'src/assets/null_pt.png'
 ---
 
 <header>
@@ -12,8 +12,8 @@ import { NULL_PT_LOGO } from '@/consts';
 			<div class="flex items-center justify-center gap-2">
 				<div class="border-black border-6 min-h-[90px] min-w-[140px] flex justify-center items-center p-4 bg-violet-400 -rotate-3">
                     <div class="border-r-2 border-black">
-                        <!-- <Picture src={logo_img} alt="logo" class="w-20 h-20"/> -->
-                         <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20" inferSize/>
+                        <Picture src={logo_img} alt="logo" class="w-20 h-20"/>
+                         <!-- <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20" inferSize/> -->
                     </div>
                    
                     <div class="ml-2 flex flex-col items-end">
@@ -37,8 +37,8 @@ import { NULL_PT_LOGO } from '@/consts';
 	<div id="sticky-header" class="transform -translate-y-full transition-transform duration-300 fixed top-0 left-0 right-0 z-50">
         <nav class="flex justify-center items-center py-2 px-8 bg-violet-600 border-b-4 border-black min-h-[10vh] gap-14">
             <div class="hidden md:flex justify-center items-center">
-                <!-- <Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-150"/> -->
-                <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20 scale-150" inferSize/>
+                <Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-150"/>
+                <!-- <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20 scale-150" inferSize/> -->
 
             </div>
             <div class="flex justify-between items-center space-x-8 text-xl">

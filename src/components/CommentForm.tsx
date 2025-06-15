@@ -148,7 +148,7 @@ export default function CommentForm({ postSlug }: Props) {
         </Button>
         {status === "success" && (
           <p className="text-green-600 font-semibold mt-4 text-sm md:text-xl">
-            Comment submitted!
+            Comment submitted! Refresh to see it.
           </p>
         )}
         {status === "error" && Object.keys(errors).length === 0 && (

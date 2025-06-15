@@ -16,7 +16,7 @@ export default defineConfig({
     format: "file",
   },
   image: { domains: ["ufs.sh"] },
-  site: "https://example.com",
+  site: "https://nullpoint.vaibhavchakraborty06-14b.workers.dev/",
   integrations: [mdx(), sitemap(), react(), db()],
 
   vite: {
@@ -30,6 +30,8 @@ export default defineConfig({
     },
   },
 
-  output: "server",
-  adapter: cloudflare(),
+  output: "static",
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
 });

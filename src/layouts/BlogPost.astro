@@ -12,6 +12,7 @@ import TagsList from '@/components/blog/TagsList.tsx';
 import Comments from '@/components/Comments.astro';
 import { createImageUrl } from '@/lib/utils';
 
+
 type Props = CollectionEntry<'blog'>['data'] & {id: string, isAbout?: boolean};
 
 const { id, title, description, pubDate, updatedDate, heroImage, primaryTags, author, minutesToRead, secondaryTags, nextBlogPost, prevBlogPost, isAbout } = Astro.props;

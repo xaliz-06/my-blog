@@ -84,7 +84,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
             onClick={() => (window.location.href = post.url)}
           >
             <div className="w-full border-4 border-black px-4 py-3 md:px-8 md:py-6 min-h-[15vh] bg-violet-300 -translate-x-1 -translate-y-1 shadow-[5px_5px_0px_0px_#000] shadow-black relative hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_#000] hover:shadow-black transition-all duration-300 ease-in-out">
-              <div className="flex flex-col gap-2 mb-4 md:mb-0 items-start md:flex-row md:justify-between md:gap-0 md:items-center">
+              <div className="flex flex-col gap-2 mb-4 lg:mb-0 items-start lg:flex-row lg:justify-between lg:gap-0 lg:items-center">
                 <div className="flex gap-2 md:gap-4 md:2 md:mb-4 justify-start items-center flex-wrap">
                   {post.data.isPinned && (
                     <Pin
@@ -138,7 +138,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
                 onClick={() => (window.location.href = post.url)}
               >
                 <div className="flex gap-2 items-center justify-center">
-                  <h5 className="text-lg :md:text-2xl font-semibold tracking-tighter">
+                  <h5 className="text-lg md:text-2xl font-semibold tracking-tighter">
                     READ MORE
                   </h5>
                   <ArrowRight size="18" className="scale-150 ml-2" />
