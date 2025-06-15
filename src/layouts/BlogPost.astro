@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import TagsList from '@/components/blog/TagsList.tsx';
 import Comments from '@/components/Comments.astro';
+import { createImageUrl } from '@/lib/utils';
 
 type Props = CollectionEntry<'blog'>['data'] & {id: string, isAbout?: boolean};
 
@@ -26,7 +27,7 @@ const { id, title, description, pubDate, updatedDate, heroImage, primaryTags, au
 		<main class="mt-8 mb-28 mx-auto max-w-5xl">
 			<article class="min-h-screen font-archivo flex flex-col justify-center items-center w-[90vw] mx-auto lg:w-full">
 				<div class="mt-4 mb-4 mx-auto w-full flex justify-center items-center">
-					{heroImage && <Picture src={heroImage} alt="" />}
+					{heroImage && <Picture src={createImageUrl(heroImage)} formats={['png', 'avif', 'webp']} alt={`hero image for ${title}`} width={50} height={50} class="w-full" />}
 				</div>
 				<div class="w-full mx-auto">
 					<div class="mt-4 flex-col space-y-8">

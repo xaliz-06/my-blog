@@ -2,7 +2,7 @@
 title: "Routine"
 description: "Do you ever feel inexplicably helpless?"
 pubDate: "Jun 03 2025"
-heroImage: "../../assets/routine_hero.png"
+heroImage: "4kRtTpOgB9LtIhHsebEZnGMSNjph3UfqFckLBdaVw5TQgWrv"
 primaryTags: ["fiction"]
 secondaryTags: ["first person narrative", "existentialism", "short story"]
 minutesToRead: "15"

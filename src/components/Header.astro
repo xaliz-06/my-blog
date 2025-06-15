@@ -1,9 +1,9 @@
 ---
-import { Picture } from 'astro:assets';
 import HeaderLink from './HeaderLink.astro';
 import SocialLinks from './SocialLinks.astro';
-import logo_img from '../assets/null_pt.png'
-import { Separator } from './ui/separator';
+import { Image } from 'astro:assets';
+import { createImageUrl } from '@/lib/utils';
+import { NULL_PT_LOGO } from '@/consts';
 ---
 
 <header>
@@ -12,7 +12,8 @@ import { Separator } from './ui/separator';
 			<div class="flex items-center justify-center gap-2">
 				<div class="border-black border-6 min-h-[90px] min-w-[140px] flex justify-center items-center p-4 bg-violet-400 -rotate-3">
                     <div class="border-r-2 border-black">
-                        <Picture src={logo_img} alt="logo" class="w-20 h-20"></Picture>
+                        <!-- <Picture src={logo_img} alt="logo" class="w-20 h-20"/> -->
+                         <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20" inferSize/>
                     </div>
                    
                     <div class="ml-2 flex flex-col items-end">
@@ -36,7 +37,9 @@ import { Separator } from './ui/separator';
 	<div id="sticky-header" class="transform -translate-y-full transition-transform duration-300 fixed top-0 left-0 right-0 z-50">
         <nav class="flex justify-center items-center py-2 px-8 bg-violet-600 border-b-4 border-black min-h-[10vh] gap-14">
             <div class="hidden md:flex justify-center items-center">
-                <Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-150"/>
+                <!-- <Picture src={logo_img} alt="null point logo image" class="w-20 h-20 scale-150"/> -->
+                <Image src={createImageUrl(NULL_PT_LOGO)} alt={"null point logo image"} class="w-20 h-20 scale-150" inferSize/>
+
             </div>
             <div class="flex justify-between items-center space-x-8 text-xl">
                 <HeaderLink href="/" class="text-xl tracking-tight font-semibold transition-all hover:underline hover:underline-offset-4 hover:bg-violet-300 hover:p-1 hover:border-black hover:border hover:-rotate-1">Home</HeaderLink>

@@ -2,12 +2,13 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, NULL_PT_BANNER } from '../consts';
 import { Picture } from 'astro:assets';
 import home_img from "../assets/null_pt_hero.png"
 import { Separator } from '@/components/ui/separator';
 import { getCollection } from 'astro:content';
 import ShowcaseList from '@/components/blog/ShowcaseList';
+import { createImageUrl } from '@/lib/utils';
 
 const posts = await getCollection('blog')
 const latestPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
@@ -33,7 +34,7 @@ const latestPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 					</div>
 				</div>
 				<div class="md:flex-1">
-					<Picture src={home_img} formats={['png', 'avif', 'webp']} alt="home page banner image: a man writing on his typewriter"/>
+					<Picture src={createImageUrl(NULL_PT_BANNER)} formats={['png', 'avif', 'webp']} alt="home page banner image: a man writing on his typewriter" width={50} height={50} class="w-full"/>
 				</div>
 			</section>
 			<div class="h-8 w-[95vw] mx-auto lg:w-full">

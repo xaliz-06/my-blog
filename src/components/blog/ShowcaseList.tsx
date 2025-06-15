@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 import { formatRelativeDate } from "@/lib/date-formatter";
 import TagsList from "./TagsList";
+import { createImageUrl } from "@/lib/utils";
 
 interface ShowcaseProps {
   posts: CollectionEntry<"blog">[];
@@ -123,7 +124,7 @@ const ShowcaseList = ({ posts, isPaginated }: ShowcaseProps) => {
                   {post.data.heroImage && (
                     <div className="flex-2 flex justify-end">
                       <img
-                        src={post.data.heroImage.src}
+                        src={createImageUrl(post.data.heroImage)}
                         alt="hero-image"
                         className="w-[100%] md:w-[60%] object-contain"
                       />

@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     format: "file",
   },
-
+  image: { domains: ["ufs.sh"] },
   site: "https://example.com",
   integrations: [mdx(), sitemap(), react(), db()],
 
