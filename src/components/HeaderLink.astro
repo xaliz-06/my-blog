@@ -4,10 +4,23 @@ import type { HTMLAttributes } from 'astro/types';
 
 type Props = HTMLAttributes<'a'>;
 
-const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+const { href = '/', class: className, ...props } = Astro.props;
+
+// remove <base>, leading slash(es) and any *trailing* slash
+const clean = (p: string) =>
+  p
+    .replace(import.meta.env.BASE_URL, '')
+    .replace(/\/+$/, '')
+    .replace(/^\/+/, '');
+
+const current = clean(Astro.url.pathname);   // e.g.  "blog"
+const target  = clean(href as string);                 // e.g.  "blog"
+
+const isActive =
+  target === ''               // home page
+    ? current === ''
+    : current === target ||   // exact match
+      current.startsWith(`${target}/`); // sub‑pages
 ---
 
 <a href={href} class={cn(className, isActive && ' bg-violet-400 p-2 border-black border-4 rotate-2')} {...props}>
