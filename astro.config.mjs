@@ -16,7 +16,10 @@ export default defineConfig({
     format: "file",
   },
   image: { domains: ["ufs.sh"] },
-  site: "https://nullpoint.vaibhavchakraborty06-14b.workers.dev/",
+  site: "https://nullpoint.xaliz.xyz",
+  base: "/",
+  trailingSlash: "always",
+
   integrations: [mdx(), sitemap(), react(), db()],
 
   vite: {
